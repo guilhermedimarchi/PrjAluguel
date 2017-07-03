@@ -1,0 +1,74 @@
+package br.com.facens.aluguel.view;
+
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import org.primefaces.event.FlowEvent;
+
+
+
+import br.com.facens.aluguel.business.ContratoBusiness;
+import br.com.facens.aluguel.model.Cliente;
+import br.com.facens.aluguel.model.Contrato;
+
+@ManagedBean
+@ViewScoped
+public class ContratoMB implements Serializable{
+
+	
+	private Contrato contrato = new Contrato();
+	private Cliente cliente = new Cliente();
+	ContratoBusiness cb = new ContratoBusiness();
+	ClienteMB clientemb = new ClienteMB();
+	private int id = 1;
+	private static final long serialVersionUID = 1L;
+	
+	public ContratoMB()
+	{
+		atualizaId();
+	}
+	
+	public void selecionar(Cliente cli)
+	{
+		cliente = cli;
+		//SOMENTE PARA TESTES. ESTOU CRIANDO FUNCOES PARA IR ATRIBUINDO AS CARACTERISTICAS DO CONTRATO E SO NO BOTAL FINISH VIA EXECUTAR O SALVAR
+		salvar();
+	}
+	public void salvar() {
+		contrato.setCliente(cliente);
+		System.out.println(contrato);
+		
+		clientemb.atualizarContrato(cliente, contrato);
+		System.out.println("CONTRATO FEITO COM SUCESSO");
+		
+		cliente = new Cliente();
+		contrato = new Contrato();
+		atualizaId();
+	}
+	
+	public void atualizaId()
+	{
+		List<Contrato> lista = cb.getAllContratos() ;
+		int tam = lista.size();
+		
+		if(tam==0)
+		{
+			contrato.setId(id++);
+		}
+		else
+		{
+			id = lista.get(tam-1).getId()+1;
+			contrato.setId(id);
+		}
+	}
+	
+	public String onFlowProcess(FlowEvent event) {
+            return event.getNewStep();
+        
+    }	
+
+}

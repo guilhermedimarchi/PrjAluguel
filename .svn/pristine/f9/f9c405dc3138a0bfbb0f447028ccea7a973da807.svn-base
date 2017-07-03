@@ -1,0 +1,196 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.contratoGerenciar.contrato.title']}" />
+	</ui:define>
+
+
+	<ui:define name="principal">
+
+		<h:form id="Form">
+			<p:growl id="growl" sticky="true" showDetail="true" />
+			<p:wizard flowListener="#{contratoMB.onFlowProcess}">
+				<p:tab id="cliente" title="Cliente">
+				
+						<p:dataTable paginator="true" rows="5"
+							value="#{clienteMB.clientes}" var="cliente" id="tableClientes">
+
+							<p:column>
+								<p:commandButton value="Selecionar"
+									action="#{contratoMB.selecionar(cliente)}"
+									update=":Form:tableClientes"></p:commandButton>
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.id']}"
+								filterBy="#{cliente.id}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.id}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.nome']}"
+								filterBy="#{cliente.nome}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.nome}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.idade']}"
+								filterBy="#{cliente.idade}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.idade}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.cpf']}"
+								filterBy="#{cliente.cpf}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.cpf}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.endereco']}"
+								filterBy="#{cliente.endereco}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.endereco}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.clienteGerenciar.cliente.telefone']}"
+								filterBy="#{cliente.telefone}" filterMatchMode="contains">
+								<p:outputLabel value="#{cliente.telefone}" />
+							</p:column>
+						</p:dataTable>
+			
+				</p:tab>
+
+				<p:tab id="veiculo" title="Veiculo">
+					
+						<p:dataTable paginator="true" rows="5"
+							value="#{veiculoMB.veiculos}" var="veiculo" id="tableVeiculos"
+							widgetVar="veiculoTable" emptyMessage="Nenhum Carro Encontrado">
+
+							<p:column>
+								<p:commandButton value="Selecionar"
+									action="#{contratoMB.selecionarVeiculo(veiculo)}"
+									update=":Form:tableVeiculos"></p:commandButton>
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.veiculoGerenciar.veiculo.id']}"
+								filterBy="#{veiculo.id}" filterMatchMode="contains">
+								<p:outputLabel value="#{veiculo.id}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.veiculoGerenciar.veiculo.tipo']}"
+								filterBy="#{veiculo.tipo}" filterMatchMode="contains">
+								<p:outputLabel value="#{veiculo.tipo}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.veiculoGerenciar.veiculo.modelo']}"
+								filterBy="#{veiculo.modelo}" filterMatchMode="contains">
+								<h:outputText value="#{veiculo.modelo}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.veiculoGerenciar.veiculo.placa']}"
+								filterBy="#{veiculo.placa}" filterMatchMode="contains">
+								<p:outputLabel value="#{veiculo.placa}" />
+							</p:column>
+
+							<p:column
+								headerText="#{msg['pages.veiculoGerenciar.veiculo.diaria']}"
+								filterBy="#{veiculo.valorDiaria}" filterMatchMode="contains">
+								<h:outputText value="#{veiculo.valorDiaria}" />
+							</p:column>
+
+						</p:dataTable>
+					
+				</p:tab>
+
+				<p:tab id="contact" title="Contact">
+					<p:panel header="Contact Information">
+						<p:messages />
+						<h:panelGrid columns="2" columnClasses="label, value">
+							<h:outputText value="Email: *" />
+							<p:inputText value="#{userWizard.user.email}" required="true"
+								label="Email" />
+
+							<h:outputText value="Phone: " />
+							<p:inputText value="#{userWizard.user.phone}" />
+
+							<h:outputText value="Additional Info: " />
+							<p:inputText value="#{userWizard.user.info}" />
+						</h:panelGrid>
+					</p:panel>
+				</p:tab>
+
+				<p:tab id="confirm" title="Confirmation">
+					<p:panel header="Confirmation">
+						<h:panelGrid id="confirmation" columns="3"
+							columnClasses="grid,grid,grid">
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Firstname: " />
+								<h:outputText value="#{userWizard.user.firstname}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Lastname: " />
+								<h:outputText value="#{userWizard.user.lastname}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Age: " />
+								<h:outputText value="#{userWizard.user.age}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Street: " />
+								<h:outputText value="#{userWizard.user.street}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Postal: " />
+								<h:outputText value="#{userWizard.user.postalCode}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="City: " />
+								<h:outputText value="#{userWizard.user.city}"
+									styleClass="outputLabel" />
+							</h:panelGrid>
+
+							<h:panelGrid columns="2" columnClasses="label, value">
+								<h:outputText value="Email: " />
+								<h:outputText value="#{userWizard.user.email}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Phone " />
+								<h:outputText value="#{userWizard.user.phone}"
+									styleClass="outputLabel" />
+
+								<h:outputText value="Info: " />
+								<h:outputText value="#{userWizard.user.info}"
+									styleClass="outputLabel" />
+
+								<h:outputText />
+								<h:outputText />
+							</h:panelGrid>
+						</h:panelGrid>
+
+						<p:commandButton value="Submit"
+							actionListener="#{userWizard.save}" update="growl"
+							process="@this" />
+					</p:panel>
+				</p:tab>
+			</p:wizard>
+		</h:form>
+
+
+
+
+	</ui:define>
+</ui:composition>
+
+

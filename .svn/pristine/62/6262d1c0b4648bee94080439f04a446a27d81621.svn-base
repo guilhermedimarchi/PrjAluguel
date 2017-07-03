@@ -1,0 +1,79 @@
+package br.com.facens.aluguel.model;
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+
+//@Entity
+public class Contrato {
+	
+	//@Id
+	private int id;
+	
+	//@ManyToOne
+	private Cliente cliente;
+	
+	//@ManyToOne
+	private Companhia compania;
+	
+	//@ManyToOne
+	private Veiculo veiculo;
+	
+	private Date dataInicio;
+	private Date dataFim;
+	
+	
+	public Contrato()
+	{
+		
+	}
+	public Contrato(Cliente cliente, Companhia compania)
+	{
+		this.cliente  = cliente;
+		this.compania = compania;
+	}
+	
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Companhia getCompania() {
+		return compania;
+	}
+	public void setCompania(Companhia compania) {
+		this.compania = compania;
+	}
+	public Veiculo getVeiculo() {
+		return veiculo;
+	}
+	public void setVeiculo(Veiculo veiculo) {
+		this.veiculo = veiculo;
+	}
+	
+	public Date getDataInicio() {
+		return dataInicio;
+	}
+	public void setDataInicio(Date dataInicio) {
+		this.dataInicio = dataInicio;
+	}
+	public Date getDataFim() {
+		return dataFim;
+	}
+	public void setDataFim(Date dataFim) {
+		this.dataFim = dataFim;
+	}
+	@Override
+	public String toString() {
+		return "Contrato [cliente=" + cliente + ", compania=" + compania
+				+ ", veiculo=" + veiculo + "]";
+	}
+	
+	
+	
+
+}

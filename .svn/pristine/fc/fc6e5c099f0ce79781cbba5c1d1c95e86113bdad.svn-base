@@ -1,0 +1,37 @@
+package br.com.facens.aluguel.model;
+
+import javax.persistence.*;
+
+@Entity
+//@DiscriminatorValue(value="CarroPasseio")
+public class CarroPasseio extends Veiculo {
+	
+	private int quantidadePassageiros;
+	private String  tipo = "Carro Passeio";
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public int getQuantidadePassageiros() {
+		return quantidadePassageiros;
+	}
+
+	public void setQuantidadePassageiros(int quantidadePassageiros) {
+		this.quantidadePassageiros = quantidadePassageiros;
+	}
+
+	@Override
+	public String toString() {
+		return "CarroPasseio [quantidadePassageiros=" + quantidadePassageiros
+				+ ", toString()=" + super.toString() + "]";
+	}
+	
+	
+
+	
+
+}

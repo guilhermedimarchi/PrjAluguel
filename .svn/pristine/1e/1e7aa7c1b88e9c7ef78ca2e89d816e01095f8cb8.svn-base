@@ -1,0 +1,133 @@
+package br.com.facens.aluguel.business;
+
+
+import java.util.List;
+
+import br.com.facens.aluguel.business.VeiculoBusiness.MensagemEnum;
+import br.com.facens.aluguel.model.Veiculo;
+import br.com.facens.aluguel.services.VeiculoService;
+
+public class VeiculoBusiness {
+	
+	
+	public enum MensagemEnum { SUCESSO, ERROR };
+	private String msg;
+
+	public MensagemEnum salvarVeiculo(Veiculo Veiculo)
+	{
+	    MensagemEnum retorno;
+		
+		if(Veiculo == null){
+			msg= "br.com.facens.aluguel.business.VeiculoNullError";
+			retorno = MensagemEnum.ERROR;
+		}
+		else
+		{
+			   VeiculoService VeiculoService = new VeiculoService();
+			   if(VeiculoService.save(Veiculo))
+			   {
+			      retorno = MensagemEnum.SUCESSO;
+			      msg =  "br.com.facens.aluguel.business.VeiculoSucesso";
+			   }
+			   else
+			   {
+				  retorno = MensagemEnum.ERROR;
+				  msg =  "br.com.facens.aluguel.business.erroBanco";
+			   }
+		}
+	   return retorno;
+	}
+
+	public String getMsg() {
+		return msg;
+	}
+
+	public void setMsg(String msg) {
+		this.msg = msg;
+	}
+
+	public List<Veiculo> getAllVeiculos() {
+		 
+		VeiculoService VeiculoService = new VeiculoService();
+		return VeiculoService.getAllVeiculos();
+	}
+/*
+	public MensagemEnum deletarVeiculo(Veiculo cli) {
+		MensagemEnum retorno;
+		VeiculoService VeiculoService = new VeiculoService();
+		if(VeiculoService.delete(cli))
+			retorno = MensagemEnum.SUCESSO;
+		else
+			retorno = MensagemEnum.ERROR;
+		return retorno;
+	}
+
+	public Veiculo pesquisar(int id) {
+		
+		VeiculoService VeiculoService = new VeiculoService();
+		Veiculo cli = new Veiculo();
+		cli = VeiculoService.pesquisar(id);
+		return cli;
+	}
+
+	public MensagemEnum atualizar(Veiculo Veiculo)
+	{
+		MensagemEnum retorno;
+				
+				if(Veiculo == null){
+					msg= "br.com.facens.aluguel.business.VeiculoNullError";
+					retorno = MensagemEnum.ERROR;
+				}
+				else
+				{
+					   VeiculoService VeiculoService = new VeiculoService();
+					   if(VeiculoService.atualizar(Veiculo))
+					   {
+					      retorno = MensagemEnum.SUCESSO;
+					      msg =  "br.com.facens.aluguel.business.VeiculoSucesso";
+					   }
+					   else
+					   {
+						  retorno = MensagemEnum.ERROR;
+						  msg =  "br.com.facens.aluguel.business.erroBanco";
+					   }
+
+				}
+			   return retorno;
+	}*/
+	public MensagemEnum atualizar(Veiculo Veiculo)
+	{
+		MensagemEnum retorno;
+				
+				if(Veiculo == null){
+					msg= "br.com.facens.aluguel.business.VeiculoNullError";
+					retorno = MensagemEnum.ERROR;
+				}
+				else
+				{
+					   VeiculoService VeiculoService = new VeiculoService();
+					   if(VeiculoService.atualizar(Veiculo))
+					   {
+					      retorno = MensagemEnum.SUCESSO;
+					      msg =  "br.com.facens.aluguel.business.VeiculoSucesso";
+					   }
+					   else
+					   {
+						  retorno = MensagemEnum.ERROR;
+						  msg =  "br.com.facens.aluguel.business.erroBanco";
+					   }
+
+				}
+			   return retorno;
+	}
+	public MensagemEnum deletarVeiculo(Veiculo cli) {
+		MensagemEnum retorno;
+		VeiculoService VeiculoService = new VeiculoService();
+		if(VeiculoService.delete(cli))
+			retorno = MensagemEnum.SUCESSO;
+		else
+			retorno = MensagemEnum.ERROR;
+		return retorno;
+	}
+	
+}

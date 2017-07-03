@@ -1,0 +1,211 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:rich="http://richfaces.org/rich"
+	xmlns:a4j="http://richfaces.org/a4j">
+
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.veiculoGerenciar.veiculo.title']}" />
+	</ui:define>
+
+
+	<ui:define name="principal">
+
+		<p:tabView id="tabs">
+			<p:tab title="Caminhao" id="tabCaminhao">
+
+				<h:form id="caminhaoForm">
+
+					<p:growl id="msg" showDetail="true" life="3000" />
+					<p:focus context="panel" />
+
+					<p:panelGrid id="panel" columns="2">
+
+						<f:facet name="header">
+							<p:outputLabel
+								value="#{msg['pages.veiculoGerenciar.veiculo.title']}" />
+						</f:facet>
+
+						<p:outputLabel value="#{msg['pages.veiculoGerenciar.veiculo.id']}" />
+						<p:inputText required="true" value="#{veiculoMB.caminhao.id}"
+							id="idCaminhao">
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.modelo']}" />
+						<p:inputText required="true" value="#{veiculoMB.caminhao.modelo}" id="modeloCaminhao">
+							<p:message for="modeloCaminhao" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.placa']}" />
+						<p:inputText required="true" value="#{veiculoMB.caminhao.placa}"
+							id="placaCaminhao">
+							<p:message for="placaCaminhao" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.capacidadeMaxima']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.caminhao.capacidadeMaxima}"
+							id="capacidadeMaximaCaminhao">
+							<p:message for="capacidadeMaximaCaminhao" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.diaria']}" />
+						<p:inputText value="#{veiculoMB.caminhao.valorDiaria}"
+							id="diariaCaminhao" />
+
+					</p:panelGrid>
+
+					<p:commandButton actionListener="#{veiculoMB.salvarCaminhao}"
+						value="#{msg['pages.veiculoGerenciar.veiculo.btnSalvar']}"
+						update="msg, caminhaoForm, :tabs, :tableVeiculos  "></p:commandButton>
+				</h:form>
+			</p:tab>
+
+			<p:tab title="CarroPasseio" id="tabCarroPasseio">
+
+				<h:form id="carroPasseioForm">
+
+					<p:growl id="msg" showDetail="true" life="3000" />
+					<p:focus context="panel" />
+
+					<p:panelGrid id="panel" columns="2">
+
+						<f:facet name="header">
+							<p:outputLabel
+								value="#{msg['pages.veiculoGerenciar.veiculo.title']}" />
+						</f:facet>
+
+						<p:outputLabel value="#{msg['pages.veiculoGerenciar.veiculo.id']}" />
+						<p:inputText required="true" value="#{veiculoMB.carropasseio.id}"
+							id="idCarroPasseio">
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.modelo']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.carropasseio.modelo}" id="modeloCarroPasseio">
+							<p:message for="modeloCarroPasseio" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.placa']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.carropasseio.placa}" id="placaCarroPasseio">
+							<p:message for="placaCarroPasseio" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.passageiros']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.carropasseio.quantidadePassageiros}"
+							id="passageirosCarroPasseio">
+							<p:message for="passageirosCarroPasseio" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.diaria']}" />
+						<p:inputText value="#{veiculoMB.carropasseio.valorDiaria}"
+							id="diariaCarroPasseio" />
+
+					</p:panelGrid>
+
+					<p:commandButton actionListener="#{veiculoMB.salvarCarroPasseio}"
+						value="#{msg['pages.veiculoGerenciar.veiculo.btnSalvar']}"
+						update="msg, carroPasseioForm, :tabs, :tableVeiculos "></p:commandButton>
+				</h:form>
+			</p:tab>
+
+			<p:tab title="Carro Sport" id="tabCarroSport">
+
+				<h:form id="carroSportForm">
+
+					<p:growl id="msg" showDetail="true" life="3000" />
+					<p:focus context="panel" />
+
+					<p:panelGrid id="panel" columns="2">
+
+						<f:facet name="header">
+							<p:outputLabel
+								value="#{msg['pages.veiculoGerenciar.veiculo.title']}" />
+						</f:facet>
+
+						<p:outputLabel value="#{msg['pages.veiculoGerenciar.veiculo.id']}" />
+						<p:inputText required="true" value="#{veiculoMB.carrosport.id}"
+							id="idCarroSport">
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.modelo']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.carrosport.modelo}" id="modeloCarroSport">
+							<p:message for="modeloCarroSport" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.placa']}" />
+						<p:inputText required="true" value="#{veiculoMB.carrosport.placa}"
+							id="placaCarroSport">
+							<p:message for="placaCarroSport" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.potencia']}" />
+						<p:inputText required="true"
+							value="#{veiculoMB.carrosport.potencia}" id="potenciaCarroSport">
+							<p:message for="potenciaCarroSport" />
+						</p:inputText>
+
+						<p:outputLabel
+							value="#{msg['pages.veiculoGerenciar.veiculo.diaria']}" />
+						<p:inputText value="#{veiculoMB.carrosport.valorDiaria}"
+							id="diariaCarroSport" />
+
+					</p:panelGrid>
+
+					<p:commandButton actionListener="#{veiculoMB.salvarCarroSport}"
+						value="#{msg['pages.veiculoGerenciar.veiculo.btnSalvar']}"
+						update="msg, carroSportForm,:tabs, :tableVeiculos "></p:commandButton>
+				</h:form>
+			</p:tab>
+		</p:tabView>
+
+		<p:dataTable paginator="true" rows="5" value="#{veiculoMB.veiculos}"
+			var="veiculo" id="tableVeiculos">
+			
+			<p:column headerText="#{msg['pages.veiculoGerenciar.veiculo.id']}">
+				<p:outputLabel value="#{veiculo.id}" />
+			</p:column>
+
+			<p:column headerText="#{msg['pages.veiculoGerenciar.veiculo.tipo']}">
+				<p:outputLabel value="#{veiculo.tipo}" />
+			</p:column>
+
+			<p:column
+				headerText="#{msg['pages.veiculoGerenciar.veiculo.modelo']}">
+				<p:outputLabel value="#{veiculo.modelo}" />
+			</p:column>
+
+			<p:column headerText="#{msg['pages.veiculoGerenciar.veiculo.placa']}">
+				<p:outputLabel value="#{veiculo.placa}" />
+			</p:column>
+
+			<p:column
+				headerText="#{msg['pages.veiculoGerenciar.veiculo.diaria']}">
+				<p:outputLabel value="#{veiculo.valorDiaria}" />
+			</p:column>
+		</p:dataTable>
+
+
+	</ui:define>
+</ui:composition>
+
+

@@ -1,0 +1,29 @@
+package br.com.facens.aluguel.view;
+
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
+
+import org.primefaces.event.FlowEvent;
+
+import br.com.facens.aluguel.business.ClienteBusiness;
+import br.com.facens.aluguel.business.ClienteBusiness.MensagemEnum;
+import br.com.facens.aluguel.model.Cliente;
+import br.com.facens.aluguel.util.JSFUtil;
+
+@ManagedBean
+@ViewScoped
+public class ContratoMB implements Serializable{
+
+	private static final long serialVersionUID = 1L;
+	
+	
+	public String onFlowProcess(FlowEvent event) {
+            return event.getNewStep();
+        
+    }	
+
+}

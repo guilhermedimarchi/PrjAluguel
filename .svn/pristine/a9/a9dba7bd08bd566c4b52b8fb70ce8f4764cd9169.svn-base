@@ -1,0 +1,77 @@
+pages.comuns.cabecalho.headerText 			= Meu Sistema 1.0
+pages.comuns.cabecalho.img.alt 			    = Logotipo do Sistema
+pages.comuns.cabecalho.img.title			= Logotipo do Sistema
+
+pages.comuns.menuLateral.gerencial 			= Gerencial
+pages.comuns.menuLateral.inicio             = Início    
+
+pages.inicio.welcome						= Bem vindo!
+pages.inicio.title							= Início
+
+pages.comuns.rodape.footerText 				= http://www.yourcompany.com - Alfa 1.0
+pages.comuns.rodape.allRightsReserved 		= 2014 - Todos os direitos reservados
+
+
+pages.templateMenu.titleMainMenu 		     = Menu Principal
+
+
+pages.clienteGerenciar.cliente.id			= Código
+pages.clienteGerenciar.cliente.nome			= Nome
+pages.clienteGerenciar.cliente.endereco		= Endereco
+pages.clienteGerenciar.cliente.cpf			= CPF
+pages.clienteGerenciar.cliente.idade		= Idade
+pages.clienteGerenciar.cliente.telefone		= Telefone
+pages.clienteGerenciar.cliente.title		= Cadastro de Cliente
+pages.clienteGerenciar.cliente.btnSalvar	= Salvar
+pages.clienteGerenciar.cliente.btnSalvarAtualizar	= Salvar/Atualizar
+pages.clienteGerenciar.cliente.btnCancelar	= Cancelar
+pages.clienteGerenciar.cliente.btnVoltar	= Voltar
+pages.clienteGerenciar.cliente.btnDeletar	= Deletar
+pages.clienteGerenciar.cliente.btnPesquisar	= Pesquisar
+pages.clienteGerenciar.cliente.btnAtualizar	= Atualizar
+pages.clienteGerenciar.cliente.btnFechar    = Fechar
+pages.clienteGerenciar.cliente.idadeInvalida = Idade invalida		
+
+
+pages.veiculoGerenciar.veiculo.id			= Código
+pages.veiculoGerenciar.veiculo.modelo		= Modelo
+pages.veiculoGerenciar.veiculo.placa		= Placa
+pages.veiculoGerenciar.veiculo.tipo			= Tipo
+pages.veiculoGerenciar.veiculo.diaria		= Diaria
+pages.veiculoGerenciar.veiculo.tipo			= Tipo
+pages.veiculoGerenciar.veiculo.potencia		= Potencia
+pages.veiculoGerenciar.veiculo.passageiros	= Passageiros
+pages.veiculoGerenciar.veiculo.capacidadeMaxima	= Cap. Maxima
+pages.veiculoGerenciar.veiculo.title		= Cadastro de Veiculo
+pages.veiculoGerenciar.veiculo.btnSalvar	= Salvar
+pages.veiculoGerenciar.veiculo.btnSalvarAtualizar	= Salvar/Atualizar
+pages.veiculoGerenciar.veiculo.btnCancelar	= Cancelar
+pages.veiculoGerenciar.veiculo.btnVoltar	= Voltar
+pages.veiculoGerenciar.veiculo.btnDeletar	= Deletar
+pages.veiculoGerenciar.veiculo.btnPesquisar	= Pesquisar
+pages.veiculoGerenciar.veiculo.btnAtualizar	= Atualizar
+pages.veiculoGerenciar.veiculo.btnFechar    = Fechar
+
+pages.companhiaGerenciar.companhia.id			= Código
+pages.companhiaGerenciar.companhia.nome			= Nome
+pages.companhiaGerenciar.companhia.contratos		= Contratos
+pages.companhiaGerenciar.companhia.title		= Cadastro de Companhia
+pages.companhiaGerenciar.companhia.btnSalvar	= Salvar
+pages.companhiaGerenciar.companhia.btnSalvarAtualizar	= Salvar/Atualizar
+pages.companhiaGerenciar.companhia.btnCancelar	= Cancelar
+pages.companhiaGerenciar.companhia.btnVoltar	= Voltar
+pages.companhiaGerenciar.companhia.btnDeletar	= Deletar
+pages.companhiaGerenciar.companhia.btnPesquisar	= Pesquisar
+pages.companhiaGerenciar.companhia.btnAtualizar	= Atualizar
+pages.companhiaGerenciar.companhia.btnFechar    = Fechar
+
+br.com.facens.aluguel.controller.ClienteMB.idMensagem = Mensagem
+br.com.facens.aluguel.controller.VeiculoMB.idMensagem = Mensagem
+
+
+
+br.com.facens.aluguel.business.clienteNullError 	 = Erro interno. Objeto Cliente igual a null
+br.com.facens.aluguel.business.clienteSizeError 	 = Erro. O tamanho do nome do cliente menor do que 5
+br.com.facens.aluguel.business.clienteSucesso        = Cliente salvo com sucesso!
+br.com.facens.aluguel.business.erroBanco             = Erro interno com o banco de dados!
+br.com.facens.aluguel.business.clienteSobrenomeError = Erro. Sobre nome é obrigatório

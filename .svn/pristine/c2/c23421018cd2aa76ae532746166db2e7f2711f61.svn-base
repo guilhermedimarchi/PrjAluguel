@@ -1,0 +1,66 @@
+package br.com.facens.aluguel.model;
+
+import java.util.ArrayList;
+
+public class Companhia {
+	
+	private int id;
+	private String nome;
+	private ArrayList <Contrato> contratos;
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public ArrayList<Contrato> getContratos() {
+		return contratos;
+	}
+	public void setContratos(ArrayList<Contrato> contratos) {
+		this.contratos = contratos;
+	}
+	
+	public void addContrato(Contrato contrato)
+	{
+		contratos.add(contrato);
+	}
+	@Override
+	public String toString() {
+		return "Compania [id=" + id + ", nome=" + nome + "]";
+	}
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Companhia other = (Companhia) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
+	
+    
+	
+	
+	
+
+}

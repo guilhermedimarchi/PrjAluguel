@@ -1,0 +1,68 @@
+<ui:composition template="templateMenu.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:tm="http://java.sun.com/jsf/composite/terminal/1_0/components">
+	
+	<ui:define name="title">
+		<h:outputText value="#{msg['pages.companhiaGerenciar.companhia.title']}" />
+	</ui:define>
+	
+
+	<ui:define name="principal">
+		 <h:form id="companhiaForm" >
+	    
+	     <p:growl id="msg" showDetail="true" life="3000"/>   
+	     <p:focus context="panel"/>
+	     
+	     <p:panelGrid  id="panel" columns="2"  > 
+	     	   
+	     	   <f:facet name="header">
+        			<p:outputLabel value="#{msg['pages.companhiaGerenciar.companhia.title']}"/>			
+    		   </f:facet>
+
+	           <p:outputLabel value="#{msg['pages.companhiaGerenciar.companhia.id']}"/>
+	           <p:inputText  required="true"   value="#{companhiaMB.companhia.id}" id="idCompanhia" >
+	           </p:inputText>
+			   
+			   <p:outputLabel value="#{msg['pages.companhiaGerenciar.companhia.nome']}"/>
+	           <p:inputText   required="true" value="#{companhiaMB.companhia.nome}" id="nomeCompanhia">
+	           <p:message for="nomeCompanhia"/>
+	           </p:inputText>
+	    </p:panelGrid>       
+	           
+	           <p:commandButton  actionListener="#{companhiaMB.salvar}" value="#{msg['pages.companhiaGerenciar.companhia.btnSalvar']}" update="msg, companhiaForm, :tableCompanhias"  ></p:commandButton>
+	           <p:commandButton  actionListener="#{companhiaMB.atualizar}" value="#{msg['pages.companhiaGerenciar.companhia.btnAtualizar']}" update="msg, companhiaForm, :tableCompanhias"  ></p:commandButton>
+	           <p:commandButton  actionListener="#{companhiaMB.pesquisar}" process="@this,idCompanhia" value="#{msg['pages.companhiaGerenciar.companhia.btnPesquisar']}" update="msg, companhiaForm, :tableCompanhias" ></p:commandButton>
+	          																																					  
+               <p:commandButton   value="#{msg['pages.companhiaGerenciar.companhia.btnVoltar']}" action="inicio"></p:commandButton>	     	     	     
+	     </h:form>
+
+		
+	     <p:dataTable paginator="true" rows="5" value="#{companhiaMB.companhias}" var="companhia" id="tableCompanhias">
+	        
+	        <p:column>
+				<p:commandButton value="Deletar" action="#{companhiaMB.deletar(companhia)}" update="tableCompanhias"></p:commandButton>
+			</p:column>
+	        
+	         <p:column headerText="#{msg['pages.companhiaGerenciar.companhia.id']}">
+	             <p:outputLabel value="#{companhia.id}"/>
+	         </p:column>
+	     
+	     	<p:column headerText="#{msg['pages.companhiaGerenciar.companhia.nome']}">
+	             <p:outputLabel value="#{companhia.nome}"/>
+	        </p:column>
+			
+			<p:column headerText="#{msg['pages.companhiaGerenciar.companhia.contratos']}">
+	             <p:outputLabel value="#{companhia.contratos}"/>
+	        </p:column>
+
+	     </p:dataTable>
+	     	
+
+	</ui:define>
+</ui:composition>
+
+
